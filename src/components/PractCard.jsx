@@ -1,5 +1,6 @@
 import { star } from "../assets";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const PractCard = ({ img, type, name, consultation }) => {
   return (
@@ -17,12 +18,16 @@ const PractCard = ({ img, type, name, consultation }) => {
           </span>
         </p>
         <div className="flex justify-between my-4 gap-2">
-          <button className="py-2 px-4 border border-primary text-primary text-[11px] rounded-lg shrink-0 md:px-5 md:text-[13px] lg:text-[14px]">
-            View Profile
-          </button>
-          <button className="py-2 px-4 bg-primary text-white text-[11px]  rounded-lg shrink-0 md:text-[13px] md:px-5 lg:text-[14px]">
-            Consult
-          </button>
+          <Link to="/practitionerProfile">
+            <button className="py-2 px-4 border border-primary text-primary text-[11px] rounded-lg shrink-0 md:px-5 md:text-[13px] lg:text-[14px]">
+              View Profile
+            </button>
+          </Link>
+          <Link to="/consult">
+            <button className="py-2 px-4 bg-primary text-white text-[11px]  rounded-lg shrink-0 md:text-[13px] md:px-5 lg:text-[14px]">
+              Consult
+            </button>
+          </Link>
         </div>
       </div>
     </div>

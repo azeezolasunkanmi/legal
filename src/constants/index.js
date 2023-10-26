@@ -21,8 +21,8 @@ import {
 
 export const navLinks = [
   { id: "company", title: "Company" },
-  { id: "firms", title: "For Legal Firms" },
-  { id: "clients", title: "For Clients" },
+  { id: "firms", title: "For Legal Firms", to: "legalFirm" },
+  { id: "clients", title: "For Clients", to: "consult" },
   { id: "resources", title: "Resources" },
   { id: "contact", title: "Contact Us" },
 ];

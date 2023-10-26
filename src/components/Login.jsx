@@ -63,7 +63,7 @@ const Login = ({ submitFormHandler, enterSignupPageHandler }) => {
   return (
     <div className="w-full bg-tertiary">
       <div className="flex h-screen w-full items-start">
-        <div className="w-1/2 h-screen">
+        <div className="hidden md:block w-1/2 h-screen">
           <img
             src={authimage}
             alt="auth image"

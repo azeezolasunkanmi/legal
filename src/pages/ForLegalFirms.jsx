@@ -1,5 +1,6 @@
 import { legalHero } from "../assets";
 import { todaysStats, practitioners } from "../constants";
+
 import {
   SecondSearch,
   Stats,

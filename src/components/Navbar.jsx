@@ -3,6 +3,7 @@ import { useState } from "react";
 import { logo, close, menu } from "../assets";
 
 import { navLinks } from "../constants";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -17,18 +18,21 @@ const Navbar = () => {
 
       <ul className="list-none hidden md:flex items-center shrink-0 gap-4 lg:gap-6">
         {navLinks.map(nav => (
-          <li
+          <Link
+            to={nav.to}
             key={nav.id}
             className="font-poppins font-normal cursor-pointer text-[16px] lg:text-[18px] xl:text-[20px] text-dimDark"
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
-          </li>
+          </Link>
         ))}
       </ul>
       <div className="flex gap-2">
-        <button className="bg-primary px-6 py-2 rounded-md shrink-0 text-white font-poppins font-normal text-[14px] md:py-[10px] md:rounded-x md:text-[16px] xl:px-12 xl:text-[20px]">
-          Try it for free
-        </button>
+        <Link to="auth">
+          <button className="bg-primary px-6 py-2 rounded-md shrink-0 text-white font-poppins font-normal text-[14px] md:py-[10px] md:rounded-x md:text-[16px] xl:px-12 xl:text-[20px]">
+            Try it for free
+          </button>
+        </Link>
 
         <div className="md:hidden flex justify-end items-center">
           <img
@@ -45,12 +49,13 @@ const Navbar = () => {
           >
             <ul className="list-none h-[100vh] flex items-center mx-auto mt-4 cursor-pointer flex-col gap-6">
               {navLinks.map(nav => (
-                <li
+                <Link
+                  to={nav.to}
                   key={nav.id}
                   className="font-poppins font-normal cursor-pointer text-[16px] lg:text-[18px] xl:text-[20px] text-dimDark"
                 >
                   <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
+                </Link>
               ))}
             </ul>
           </div>
