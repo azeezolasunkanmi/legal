@@ -72,7 +72,7 @@ const Login = ({ submitFormHandler, enterSignupPageHandler }) => {
         </div>
         <form
           onSubmit={submitHandler}
-          className=" h-screen w-1/2 flex items-center justify-center"
+          className="w-full h-screen flex items-center justify-center md:w-1/2"
         >
           <div className="flex flex-col items-center gap-6 justify-center w-full">
             <div>

@@ -103,7 +103,7 @@ const Signup = ({ submitFormHandler, enterLoginPageHandler }) => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex flex-col items-center gap-4 justify-center h-screen w-1/2">
+        <div className="w-full flex flex-col items-center gap-4 justify-center h-screen md:w-1/2">
           <div>
             <img src={logo} alt="logo" />
           </div>
