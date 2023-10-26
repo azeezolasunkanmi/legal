@@ -63,6 +63,7 @@ const Signup = ({ submitFormHandler, enterLoginPageHandler }) => {
     inputBlurHandler: emailBlurHandler,
     reset: resetEmail,
   } = useInput(isValidEmail);
+
   const {
     value: passwordValue,
     isValid: passwordIsValid,

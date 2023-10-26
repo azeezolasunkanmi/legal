@@ -213,6 +213,33 @@ export const practitioners = [
   },
 ];
 
+export const consultTime = [
+  {
+    id: 1,
+    time: "9:30am",
+  },
+  {
+    id: 2,
+    time: "10:30am",
+  },
+  {
+    id: 3,
+    time: "11:30am",
+  },
+  {
+    id: 4,
+    time: "12:30pm",
+  },
+  {
+    id: 5,
+    time: "1:30pm",
+  },
+  {
+    id: 6,
+    time: "2:30pm",
+  },
+];
+
 export const publications = [
   {
     img: articleHeaderOne,

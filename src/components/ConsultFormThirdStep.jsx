@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { useState } from "react";
 import "react-day-picker/dist/style.css";
 import { dayPickerCss } from "../constants";
-import { weekdays } from "../constants";
+import { weekdays, consultTime } from "../constants";
 import { useContext } from "react";
 import { MultiStepContext } from "../ConsultFormContext";
 
@@ -19,6 +19,35 @@ const ConsultFormThirdStep = () => {
     new Date(2023, 9, 20),
     { from: new Date(2023, 9, 18), to: new Date(2023, 9, 22) },
   ];
+
+  const timeSelectedHandler = e => {
+    const previouslySelected = document.querySelector(".timeSelected");
+    if (previouslySelected) {
+      if (previouslySelected === e.target) {
+        previouslySelected.classList.remove("timeSelected");
+        setUserData({
+          ...userData,
+          time: "",
+          day: "",
+        });
+        return;
+      } else {
+        previouslySelected.classList.remove("timeSelected");
+        setUserData({
+          ...userData,
+          time: "",
+          day: "",
+        });
+      }
+    }
+
+    e.target.classList.add("timeSelected");
+    setUserData({
+      ...userData,
+      time: e.target.value,
+      day: pickedDate,
+    });
+  };
 
   let pickedDay = new Date(selected).getDay();
   let pickedDate = selected ? <p>{format(selected, "PP")}</p> : "";
@@ -46,13 +75,22 @@ const ConsultFormThirdStep = () => {
               disabled: "my-disabled",
             }}
           />
-          <button
-            type="button"
-            className="px-10 text-center py-2 mb-2 border-2 border-primary text-primary font-bold rounded-lg"
-            onClick={() => setCurrentStep(4)}
-          >
-            Next
-          </button>
+          <div className="flex justify-between w-[90%]  md:w-[60%] lg:w-[50%]">
+            <button
+              type="button"
+              className="w-[47%] text-center p-2 border-2 border-primary text-primary font-bold rounded-lg"
+              onClick={() => setCurrentStep(2)}
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              className="w-[47%] text-center p-2 bg-primary text-white rounded-lg"
+              onClick={() => setCurrentStep(4)}
+            >
+              Continue
+            </button>
+          </div>
         </form>
         {selected && (
           <div className="w-full my-10 md:my-0 md:w-[20%]">
@@ -60,78 +98,15 @@ const ConsultFormThirdStep = () => {
               {weekdays[pickedDay]}
             </h2>
             <div className="p-5 flex flex-col items-center justify-start gap-4">
-              <input
-                type="button"
-                value={`9:30am`}
-                className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
-                onClick={e =>
-                  setUserData({
-                    ...userData,
-                    time: e.target.value,
-                    day: pickedDate,
-                  })
-                }
-              />
-              <input
-                type="button"
-                value={`10:30am`}
-                className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
-                onClick={e =>
-                  setUserData({
-                    ...userData,
-                    time: e.target.value,
-                    day: pickedDate,
-                  })
-                }
-              />
-              <input
-                type="button"
-                value={`11:30am`}
-                className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
-                onClick={e =>
-                  setUserData({
-                    ...userData,
-                    time: e.target.value,
-                    day: pickedDate,
-                  })
-                }
-              />
-              <input
-                type="button"
-                value={`12:30am`}
-                className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
-                onClick={e =>
-                  setUserData({
-                    ...userData,
-                    time: e.target.value,
-                    day: pickedDate,
-                  })
-                }
-              />
-              <input
-                type="button"
-                value={`1:30am`}
-                className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
-                onClick={e =>
-                  setUserData({
-                    ...userData,
-                    time: e.target.value,
-                    day: pickedDate,
-                  })
-                }
-              />
-              <input
-                type="button"
-                value={`2:30am`}
-                className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
-                onClick={e =>
-                  setUserData({
-                    ...userData,
-                    time: e.target.value,
-                    day: pickedDate,
-                  })
-                }
-              />
+              {consultTime.map(time => (
+                <input
+                  key={time.id}
+                  type="button"
+                  value={time.time}
+                  className="w-full py-2 border-2 border-primary font-medium text-[20px] font-poppins text-primary rounded-lg cursor-pointer"
+                  onClick={timeSelectedHandler}
+                />
+              ))}
             </div>
           </div>
         )}

@@ -1,9 +1,34 @@
 import { useContext } from "react";
 import { MultiStepContext } from "../ConsultFormContext";
 
+// const isNotEmpty = value => value.trim() !== "";
+
+// const isValidEmail = email => {
+//   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+//   return emailPattern.test(email);
+// };
+
 const ConsultFormFirstStep = () => {
   const { setCurrentStep, userData, setUserData } =
     useContext(MultiStepContext);
+  // const firstNameHasError = useState(false);
+  // const lastNameHasError = useState(false);
+  // const emailHasError = useState(false);
+  // const phoneHasError = useState(false);
+
+  // let formIsValid = false;
+
+  // if (firstNameHasError && lastNameHasError && emailHasError && phoneHasError) {
+  //   formIsValid = true;
+  // }
+
+  // const submitHandler = event => {
+  //   event.preventDefault();
+
+  //   if (!formIsValid) {
+  //     return;
+  //   }
+  // };
 
   return (
     <div className=" w-full my-20 md:w-[70%] lg:w-[40%]">
